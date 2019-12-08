@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="250dp"
             android:layout_height="150dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/probs" />
 
         <EditText
             android:id="@+id/Name"
@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Welcome Peeps for Probs!"
+            android:text="Welcome Peeps for Props!"
             android:textColor="@color/colorInput"
             android:textSize="22sp"
             tools:layout_editor_absoluteX="69dp"
