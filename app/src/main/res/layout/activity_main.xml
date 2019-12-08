@@ -41,7 +41,7 @@
             android:textColorHint="@color/colorHint"
             android:textColor="@color/colorInput"
             android:textSize="22sp"
-            android:inputType="number"/>
+            />
         <Button
             android:id="@+id/Send"
             android:layout_width="330dp"

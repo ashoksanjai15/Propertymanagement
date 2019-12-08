@@ -32,54 +32,61 @@ public class MainActivity extends AppCompatActivity {
 
 private EditText mPhoneNumber,mCode;
 private Button mSend;
-private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+//private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
-   String mVerificationId;
+   //String mVerificationId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseApp.initializeApp(this);
+        //FirebaseApp.initializeApp(this);
 
-        userIsLoggedIn();
+      //  userIsLoggedIn();
 
 
         mPhoneNumber = findViewById(R.id.phoneNumber);
         mCode = findViewById(R.id.code);
-
         mSend = findViewById(R.id.Send);
 
+
         mSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    // Construct data
-                    String apiKey = "apikey=" + "d3V5v1c+Se0-ue1Vd6wXLUJG2T1e14dQD1A1KYoUYh";
-                    String message = "&message=" + mCode.getText().toString();
-                    String sender = "&sender=" + "TXTLCL";
-                    String numbers = "&numbers=" + mPhoneNumber.getText().toString();
+                                     @Override
+                                     public void onClick(View v) {
+                                         try {
+                                             // Construct data
+                                             String apiKey = "apikey=" + "d3V5v1c+Se0-ue1Vd6wXLUJG2T1e14dQD1A1KYoUYh";
+                                             String message = "&message=" + mCode.getText().toString();
+                                             String sender = "&sender=" + "TXTLCL";
+                                             String numbers = "&numbers=" + mPhoneNumber.getText().toString();
 
-                    // Send data
-                    HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
-                    String data = apiKey + numbers + message + sender;
-                    conn.setDoOutput(true);
-                    conn.setRequestMethod("POST");
-                    conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
-                    conn.getOutputStream().write(data.getBytes("UTF-8"));
-                    final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    final StringBuffer stringBuffer = new StringBuffer();
-                    String line;
-                    while ((line = rd.readLine()) != null) {
-                       Toast.makeText(MainActivity.this,line.toString(),Toast.LENGTH_SHORT).show();
-                    }
-                    rd.close();
+                                             // Send data
+                                             HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
+                                             String data = apiKey + numbers + message + sender;
+                                             conn.setDoOutput(true);
+                                             conn.setRequestMethod("POST");
+                                             conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+                                             conn.getOutputStream().write(data.getBytes("UTF-8"));
+                                             final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                                             final StringBuffer stringBuffer = new StringBuffer();
+                                             String line;
+                                             while ((line = rd.readLine()) != null) {
+                                                 Toast.makeText(MainActivity.this, line.toString(), Toast.LENGTH_SHORT).show();
+                                             }
+                                             rd.close();
 
 
-                } catch (Exception e) {
-                    Toast.makeText(MainActivity.this,e.toString(),Toast.LENGTH_SHORT).show();
+                                         } catch (Exception e) {
+                                             Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
 
-                }
-                if(mVerificationId != null)
+                                         }
+                                     }
+                                 });
+
+        StrictMode.ThreadPolicy st=new StrictMode.ThreadPolicy.Builder().build();
+        StrictMode.setThreadPolicy(st);
+    }
+}
+                /*if(mVerificationId != null)
                     verifyPhoneNumberWithCode();
                     else
                         startPhoneNumberVerification();
@@ -150,4 +157,4 @@ private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
         }
     }
-//hi
+//hi*/
