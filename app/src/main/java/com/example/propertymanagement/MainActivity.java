@@ -92,10 +92,11 @@ int randomNumber;
             @Override
             public void onClick(View v) {
                 if(randomNumber==Integer.valueOf(mCode.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"You are loggedin successfully",Toast.LENGTH_LONG).show();
+
                     Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
                     startActivity(intent);
 
-                    Toast.makeText(getApplicationContext(),"You are loggedin successfully",Toast.LENGTH_LONG).show();
 
 
                 }else{
