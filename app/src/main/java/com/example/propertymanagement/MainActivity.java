@@ -26,12 +26,14 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
-private EditText mPhoneNumber,mCode;
-private Button mSend;
+private EditText mPhoneNumber,mCode,mName;
+private Button mSend,mverify;
+int randomNumber;
 //private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
    //String mVerificationId;
@@ -43,10 +45,11 @@ private Button mSend;
 
       //  userIsLoggedIn();
 
-
+        mName = findViewById(R.id.Name);
         mPhoneNumber = findViewById(R.id.phoneNumber);
         mCode = findViewById(R.id.code);
         mSend = findViewById(R.id.Send);
+        mverify = findViewById(R.id.verify);
 
 
         mSend.setOnClickListener(new View.OnClickListener() {
@@ -54,10 +57,12 @@ private Button mSend;
                                      public void onClick(View v) {
                                          try {
                                              // Construct data
-                                             String apiKey = "apikey=" + "d3V5v1c+Se0-ue1Vd6wXLUJG2T1e14dQD1A1KYoUYh";
-                                             String message = "&message=" + mCode.getText().toString();
+                                             String apiKey = "apikey=" + "M0Zjbg+6dNE-n5GN0DhRZEeUq5RJOSuLdiDXA8xHMF";
+                                             Random random= new Random();
+                                             randomNumber=random.nextInt(999999);
+                                             String message = "&message=" + " Hey " + mName.getText().toString()+ " Your OTP Is " + randomNumber;
                                              String sender = "&sender=" + "TXTLCL";
-                                             String numbers = "&numbers=" + mPhoneNumber.getText().toString();
+                                             String numbers = "&numbers=" +mPhoneNumber.getText().toString();
 
                                              // Send data
                                              HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
@@ -70,17 +75,34 @@ private Button mSend;
                                              final StringBuffer stringBuffer = new StringBuffer();
                                              String line;
                                              while ((line = rd.readLine()) != null) {
-                                                 Toast.makeText(MainActivity.this, line.toString(), Toast.LENGTH_SHORT).show();
+                                                 Toast.makeText(getApplicationContext(),"OTP SENT SUCCESSFULLY",Toast.LENGTH_LONG).show();
+
                                              }
                                              rd.close();
 
 
                                          } catch (Exception e) {
-                                             Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                                             Toast.makeText(getApplicationContext(),"ERROR IN SENDING SMS"+e,Toast.LENGTH_LONG).show();
+                                             Toast.makeText(getApplicationContext(),"ERROR"+e,Toast.LENGTH_LONG).show();
 
                                          }
                                      }
                                  });
+        mverify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(randomNumber==Integer.valueOf(mCode.getText().toString())){
+                    Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
+                    startActivity(intent);
+
+                    Toast.makeText(getApplicationContext(),"You are loggedin successfully",Toast.LENGTH_LONG).show();
+
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"You have entered an incorrect OTP",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
         StrictMode.ThreadPolicy st=new StrictMode.ThreadPolicy.Builder().build();
         StrictMode.setThreadPolicy(st);

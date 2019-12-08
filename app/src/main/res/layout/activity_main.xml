@@ -8,27 +8,55 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="430dp"
-        android:orientation="vertical"
-        android:gravity="center">>
+        android:layout_height="590dp"
+        android:gravity="center"
+        android:orientation="vertical">>
 
         <ImageView
             android:layout_width="250dp"
             android:layout_height="150dp"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" />
+
         <EditText
-            android:id="@+id/phoneNumber"
+            android:id="@+id/Name"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/textbox_back"
             android:drawableLeft="@drawable/ic_person_outline_white_24dp"
+            android:hint="Enter your name"
             android:padding="5dp"
-            android:hint="Enter Phone Number"
-            android:textColorHint="@color/colorHint"
             android:textColor="@color/colorInput"
-            android:textSize="22sp"/>
+            android:textColorHint="@color/colorHint"
+            android:textSize="22sp" />
+
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/textbox_back"
+            android:drawableLeft="@drawable/ic_phone_white_24dp"
+            android:hint="Enter Phone Number"
+            android:padding="5dp"
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:inputType="number"
+            android:textSize="22sp" />
+        <Button
+            android:id="@+id/Send"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/loginbutton"
+            android:text="Send Verification Code"
+            android:textColor="@color/colorInput"
+            android:textSize="22sp" />
+
+
         <EditText
             android:id="@+id/code"
             android:layout_width="330dp"
@@ -36,32 +64,38 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/textbox_back"
             android:drawableLeft="@drawable/ic_lock_outline_white_24dp"
-            android:padding="5dp"
             android:hint="Please Enter Code"
-            android:textColorHint="@color/colorHint"
+            android:padding="5dp"
             android:textColor="@color/colorInput"
-            android:textSize="22sp"
-            />
+            android:textColorHint="@color/colorHint"
+            android:inputType="number"
+            android:textSize="22sp" />
         <Button
-            android:id="@+id/Send"
+            android:id="@+id/verify"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:textSize="22sp"
-            android:text="Enter Verification Code"
+            android:background="@drawable/loginbutton"
+            android:text="Verify Otp"
             android:textColor="@color/colorInput"
-            android:background="@drawable/loginbutton"/>
+            android:textSize="22sp" />
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="Welcome Peeps for Probs!"
-            android:layout_marginTop="20dp"
-            android:textSize="22sp"
             android:textColor="@color/colorInput"
-            android:padding="5dp"/>
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="69dp"
+            tools:layout_editor_absoluteY="438dp" />
+
+
 
 
     </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

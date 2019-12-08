@@ -5,9 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainPageActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="590dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="logout"
     android:id="@+id/logout"/>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
