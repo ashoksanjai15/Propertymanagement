@@ -28,6 +28,7 @@
             android:drawableLeft="@drawable/ic_person_outline_white_24dp"
             android:hint="Enter your name"
             android:padding="5dp"
+            android:soundEffectsEnabled="true"
             android:textColor="@color/colorInput"
             android:textColorHint="@color/colorHint"
             android:textSize="22sp" />
@@ -46,12 +47,15 @@
             android:textColorHint="@color/colorHint"
             android:inputType="number"
             android:textSize="22sp" />
+
         <Button
             android:id="@+id/Send"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/loginbutton"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:soundEffectsEnabled="true"
             android:text="Send Verification Code"
             android:textColor="@color/colorInput"
             android:textSize="22sp" />

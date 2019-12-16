@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.ContactsContract;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,9 +23,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.Member;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Random;
@@ -34,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 private EditText mPhoneNumber,mCode,mName;
 private Button mSend,mverify;
 int randomNumber;
+DatabaseReference reff;
+Ashok member;
+
+
 //private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
    //String mVerificationId;
@@ -50,14 +59,22 @@ int randomNumber;
         mCode = findViewById(R.id.code);
         mSend = findViewById(R.id.Send);
         mverify = findViewById(R.id.verify);
+        member=new Ashok();
+        reff=FirebaseDatabase.getInstance().getReference().child("Ashok");
 
 
         mSend.setOnClickListener(new View.OnClickListener() {
                                      @Override
                                      public void onClick(View v) {
+                                         Long phoneNumber=Long.parseLong(mPhoneNumber.getText().toString().trim());
+                                         member.setName(mName.getText().toString().trim());
+                                         member.setPhoneNumber(phoneNumber);
+                                         reff.push().setValue(member);
+                                         Toast.makeText(MainActivity.this,"data inserted successfully",Toast.LENGTH_LONG).show();
+
                                          try {
                                              // Construct data
-                                             String apiKey = "apikey=" + "M0Zjbg+6dNE-n5GN0DhRZEeUq5RJOSuLdiDXA8xHMF";
+                                             String apiKey = "apikey=" + "aepY85Z21qQ-XxweJloyDdyumMiLFd594m4qqKVzr4";
                                              Random random= new Random();
                                              randomNumber=random.nextInt(999999);
                                              String message = "&message=" + " Hey " + mName.getText().toString()+ " Your OTP Is " + randomNumber;
@@ -75,7 +92,8 @@ int randomNumber;
                                              final StringBuffer stringBuffer = new StringBuffer();
                                              String line;
                                              while ((line = rd.readLine()) != null) {
-                                                 Toast.makeText(getApplicationContext(),"OTP SENT SUCCESSFULLY",Toast.LENGTH_LONG).show();
+                                                 stringBuffer.append(line);
+                                                Toast.makeText(getApplicationContext(),"OTP SENT SUCCESSFULLY",Toast.LENGTH_LONG).show();
 
                                              }
                                              rd.close();
