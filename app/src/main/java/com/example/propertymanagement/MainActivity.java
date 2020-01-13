@@ -73,7 +73,13 @@ Ashok member;
                                          Toast.makeText(MainActivity.this,"data inserted successfully",Toast.LENGTH_LONG).show();
 
                                          try {
+                                            // String apiKey = "apikey=" + "aepY85Z21qQ-XxweJloyDdyumMiLFd594m4qqKVzr4";
+                                           //  String message = "&message=" +mName.getText().toString();
+                                            // String sender = "&sender=" + "TXTLCL";
+                                           //  String numbers = "&numbers=" +mPhoneNumber.getText().toString();;
                                              // Construct data
+
+
                                              String apiKey = "apikey=" + "aepY85Z21qQ-XxweJloyDdyumMiLFd594m4qqKVzr4";
                                              Random random= new Random();
                                              randomNumber=random.nextInt(999999);

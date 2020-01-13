@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_gradient"
+    android:background="@color/colorInput"
     tools:context=".MainActivity">
 
     <LinearLayout
+
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="590dp"
@@ -17,7 +18,7 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="150dp"
-            android:src="@drawable/probs" />
+            android:src="@drawable/homes" />
 
         <EditText
             android:id="@+id/Name"
@@ -88,8 +89,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Welcome Peeps for Props!"
-            android:textColor="@color/colorInput"
+            android:text="Welcome Peeps for Homey!"
+            android:textColor="@color/black"
             android:textSize="22sp"
             tools:layout_editor_absoluteX="69dp"
             tools:layout_editor_absoluteY="438dp" />

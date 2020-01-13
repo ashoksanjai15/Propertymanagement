@@ -7,4 +7,6 @@
     <color name="colorHint">#C3FFFFFF</color>
     <color name="colorLoginButton">#ffffff</color>
     <color name="colorInput">#FFFFFF</color>
+    <color name="black">#030303</color>
+    <color name="skyblue">#FF30BEFF</color>
 </resources>

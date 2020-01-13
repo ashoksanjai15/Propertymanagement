@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/create_homey"
+            android:icon="@mipmap/baseline_create_black_24dp"
+            android:title="Create Homey" />
+        <item
+            android:id="@+id/list_homey"
+            android:icon="@mipmap/baseline_list_black_24dp"
+            android:title="List Homey" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Log Out" />
+
+</menu>
